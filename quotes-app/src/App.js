@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Quote from './components/Quote'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        Quotes App
+      <div className="Container">
+        <Quote
+        url='https://quotes.rest/qod?category=inspire'/>
       </div>
     );
   }

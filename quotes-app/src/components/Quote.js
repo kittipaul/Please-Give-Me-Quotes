@@ -15,13 +15,6 @@ class Quote extends Component {
 
     this.loadQuotesFromAPI = this.loadQuotesFromAPI.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.getAllQuotes = this.getAllQuotes.bind(this);
-    this.goToListPage = this.goToListPage.bind(this);
-  }
-
-  getAllQuotes() {
-    axios.get("http://localhost:9000/api/quotes")
-    .then(res => console.log('first step'))
   }
 
   handleClick() {
@@ -32,10 +25,6 @@ class Quote extends Component {
     .then(res => console.log(res.data))
     .catch(err => err);
     document.getElementById("save-quote-button").style.visibility="hidden";
-  }
-
-  goToListPage() {
-      // this.router.push('/QuotesList');
   }
 
   loadQuotesFromAPI() {
@@ -52,17 +41,14 @@ class Quote extends Component {
 
   componentDidMount() {
     this.loadQuotesFromAPI();
-    // this.getAllQuotes();
   }
 
   render() {
     return (
       <div className="Container">
-        <Link to="/QuotesList"> Go to list </Link> <br />
-
-        <button id="save-quote-button" onClick={this.handleClick}>Add quote to list</button>
         <div className="navheader">
-          <a href="">Home</a>
+          <a href="">Home</a> <br />
+          <Link to="/QuotesList"> Go to list </Link> <br />
         </div>
         <div className="bg-image">
           <img src={this.state.background} alt="background pic" />
@@ -72,6 +58,7 @@ class Quote extends Component {
           <div className="author-name">
             {this.state.author}
           </div>
+          <button id="save-quote-button" onClick={this.handleClick}>Add quote to list</button>
         </div>
       </div>
     );

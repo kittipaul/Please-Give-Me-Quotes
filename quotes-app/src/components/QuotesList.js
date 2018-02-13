@@ -1,27 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import QuotePanel from './QuotePanel';
 
-
-  //
-  // getAllQuotes() {
-  //   axios.get("http://localhost:9000/api/quotes")
-  //   .then(res => res.body)
-  //   //   console.log(res.data);
-  //   //   this.setState({
-  //   //     quote: res.data
-  //   //   })
-  //   // })
-  //   // .catch(err => err);
-  //
-  //   // this.setState({
-  //   //   quotes: ['1', '2']
-  //   // })
-  // }
-
-  // componentDidMount() {
-  //   this.getAllQuotes();
-  // }
 class QuotesList extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +11,6 @@ class QuotesList extends Component {
       quotes: []
     }
 
-    // this.getAllQuotes = this.getAllQuotes.bind(this);
     this.showList = this.showList.bind(this);
   }
 
@@ -39,7 +19,8 @@ class QuotesList extends Component {
     .then(res => {
       this.setState({
         quotes: res.data.map((q,id) => {
-          return <div key={id}> {q.quote} BY {q.author}</div>
+          return <QuotePanel key={id} quote={q.quote} author={q.author} />
+          // <div key={id}> {q.quote} BY {q.author}</div>
         })
       })
     })
@@ -54,7 +35,8 @@ class QuotesList extends Component {
     return (
       <div className="Container">
         <div>
-          <Link to="/"> Home </Link>
+        <Link to="/"> Home </Link>
+          <h2> My Quotes </h2>
           {this.state.quotes}
         </div>
       </div>

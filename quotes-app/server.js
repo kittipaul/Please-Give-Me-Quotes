@@ -1,15 +1,14 @@
 'use strict'
 
 var express = require('express');
+var app = express();
+var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Quote = require('./model/quotes');
 
-var app = express();
-var router = express.Router();
-
-var port = process.env.API_PORT || 9000;
-
+var port = 9000;
+app.use(express.static('./src/App.js'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -18,13 +17,10 @@ app.use(function(req, res, next) {
  res.setHeader("Access-Control-Allow-Credentials", "true");
  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+ next();
 });
 
-app.get('paul', (req, res) => {
-  res.send('hi its work!!!!');
-})
-
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
   res.json({ message: "API Initialized!"});
 });
 
@@ -38,10 +34,10 @@ router.route('/quotes')
     });
   })
   .post((req,res) => {
-    var quote = new Quote();
-    quote.quote = req.body.quote;
-    quote.author = req.body.author;
-    quote.background = req.body.background;
+    var quote = new Quote({
+      quote: req.body.quote,
+      author: req.body.author,
+    });
 
     quote.save((err) => {
       if (err) res.send(err);
@@ -49,6 +45,7 @@ router.route('/quotes')
     });
   });
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://kitti:try1234@ds125628.mlab.com:25628/quotesdb', (err) => {
   if (err) return "Not connected to Database";
   console.log('Database Connected!');

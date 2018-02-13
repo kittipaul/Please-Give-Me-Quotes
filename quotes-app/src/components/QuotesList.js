@@ -20,7 +20,6 @@ class QuotesList extends Component {
       this.setState({
         quotes: res.data.map((q,id) => {
           return <QuotePanel key={id} quote={q.quote} author={q.author} />
-          // <div key={id}> {q.quote} BY {q.author}</div>
         })
       })
     })
@@ -35,8 +34,8 @@ class QuotesList extends Component {
     return (
       <div className="Container">
         <div>
-        <Link to="/"> Home </Link>
-          <h2> My Quotes </h2>
+          <Link to="/">Home</Link>
+          <h2>My Quotes</h2>
           {this.state.quotes}
         </div>
       </div>

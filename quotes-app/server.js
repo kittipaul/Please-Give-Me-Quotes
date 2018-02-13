@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var Quote = require('./model/quotes');
 
 var port = 9000;
-app.use(express.static('./src/App.js'))
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -43,7 +43,13 @@ router.route('/quotes')
       if (err) res.send(err);
       res.json({quote: "Quote successfully added"});
     });
-  });
+  })
+  .delete((req, res) => {
+    var quote = req.body.quote;
+    Quote.remove({quote: quote},
+      res.json({fromDelete: "quote deleted"})
+    )}
+  );
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://kitti:try1234@ds125628.mlab.com:25628/quotesdb', (err) => {

@@ -42,8 +42,10 @@ router.route('/quotes')
   })
   .delete((req, res) => {
     var quote = req.body.quote;
-    Quote.remove({quote: quote},
+    Quote.remove({quote: quote}, (err) => {
+      if (err) res.send(err);
       res.json({fromDelete: "quote deleted"})
+      }
     )}
   );
 

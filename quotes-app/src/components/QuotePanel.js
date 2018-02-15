@@ -7,14 +7,18 @@ class QuotePanel extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      quotes: []
+    }
+
     this.removeQuote = this.removeQuote.bind(this);
   }
 
-  // updateComponent after remove
   removeQuote() {
     axios.delete("http://localhost:9000/api/quotes", {
       data: {quote: this.props.quote}
     })
+    .then(this.props.showList())
     .then(res => console.log(res.data))
     .catch(err => console.log("Can't remove quote"))
   }
@@ -28,7 +32,6 @@ class QuotePanel extends Component {
         <div className="panel-author">
           By {this.props.author}
         </div>
-
         <button onClick={this.removeQuote} className="remove-button">Remove<FaTrashO /></button>
       </div>
     );

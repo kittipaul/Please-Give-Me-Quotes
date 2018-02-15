@@ -19,7 +19,7 @@ class QuotesList extends Component {
     .then(res => {
       this.setState({
         quotes: res.data.map((q,id) => {
-          return <QuotePanel key={id} quote={q.quote} author={q.author} />
+          return <QuotePanel showList={this.showList} key={id} quote={q.quote} author={q.author} />
         })
       })
     })

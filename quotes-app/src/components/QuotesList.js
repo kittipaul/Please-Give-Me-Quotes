@@ -33,11 +33,11 @@ class QuotesList extends Component {
   render() {
     return (
       <div className="Container">
-        <div>
-          <Link to="/">Home</Link>
-          <h2>My Quotes</h2>
-          {this.state.quotes}
-        </div>
+        <button className="go-to-home-button">
+          <Link to="/" className="link-to-home">Home</Link>
+        </button>
+        <h2 className="my-quotes">My Quotes</h2>
+        {this.state.quotes}
       </div>
     );
   }

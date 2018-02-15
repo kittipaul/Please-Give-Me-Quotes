@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FaTrashO from 'react-icons/lib/fa/trash-o';
 
 
 class QuotePanel extends Component {
@@ -9,6 +10,7 @@ class QuotePanel extends Component {
     this.removeQuote = this.removeQuote.bind(this);
   }
 
+  // updateComponent after remove
   removeQuote() {
     axios.delete("http://localhost:9000/api/quotes", {
       data: {quote: this.props.quote}
@@ -19,14 +21,15 @@ class QuotePanel extends Component {
 
   render() {
     return (
-      <div className="Container">
+      <div className="panel-wrapper">
         <div className="panel-quote">
           {this.props.quote}
         </div>
         <div className="panel-author">
-          {this.props.author}
+          By {this.props.author}
         </div>
-        <button onClick={this.removeQuote}> Remove </button>
+
+        <button onClick={this.removeQuote} className="remove-button">Remove<FaTrashO /></button>
       </div>
     );
   }

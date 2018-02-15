@@ -9,7 +9,6 @@ class Quote extends Component {
     this.state = {
       quote: '',
       author: '',
-      background: '',
     };
 
     this.loadQuotesFromAPI = this.loadQuotesFromAPI.bind(this);
@@ -32,7 +31,6 @@ class Quote extends Component {
       this.setState({
         quote: res.data.contents.quotes[0].quote,
         author: res.data.contents.quotes[0].author,
-        background: res.data.contents.quotes[0].background
       });
     })
     .catch(err => console.log('Loading API fail'))
@@ -45,19 +43,23 @@ class Quote extends Component {
   render() {
     return (
       <div className="Container">
-        <div className="navheader">
-          <a href="">Home</a> <br />
-          <Link to="/QuotesList"> Go to list </Link> <br />
-        </div>
-        <div className="bg-image">
-          <img src={this.state.background} alt="background pic" />
+        <button className="go-to-list-button">
+          <Link to="/QuotesList" className="link-to-list"> Quotes List </Link>
+        </button>
+        <div className="quote-wrapper">
           <div className="quote-text">
-            {this.state.quote}
+            "{this.state.quote}"
           </div>
           <div className="author-name">
-            {this.state.author}
+            By {this.state.author}
           </div>
           <button id="save-quote-button" onClick={this.handleClick}>Add quote to list</button>
+        </div>
+        <div className="credit-to-api">
+          <span>
+            <img src="https://theysaidso.com/branding/theysaidso.png" height="15" width="15" alt="theysaidso.com"/>
+            <a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com">theysaidso.com</a>
+          </span>
         </div>
       </div>
     );

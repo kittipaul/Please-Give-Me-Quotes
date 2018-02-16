@@ -12,5 +12,9 @@ A daily reminder for inspiration and growth
 * React Router: Declarative Routing for React 
 * MongoDB: A NoSQL database
 
-## Contributing
+## Acknowledgments
+* Facebook: Thanks for awesome create-react-app
 * Theysaidso.com: Quote API
+* Inspiration
+* People's blogs on Medium
+* Stackoverflow

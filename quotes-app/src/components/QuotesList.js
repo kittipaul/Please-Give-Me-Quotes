@@ -15,15 +15,13 @@ class QuotesList extends Component {
   }
 
   showList() {
-    axios.get("http://localhost:9000/api/quotes")
+    axios.get("/api/quotes")
     .then(res => {
       this.setState({
-        quotes: res.data.map((q,id) => {
-          return <QuotePanel showList={this.showList} key={id} quote={q.quote} author={q.author} />
-        })
+        quotes: res.data
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("this show list went wrong"));
   }
 
   componentDidMount() {

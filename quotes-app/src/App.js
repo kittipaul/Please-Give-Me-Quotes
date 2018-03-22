@@ -10,7 +10,7 @@ class App extends Component {
       <div className="Container">
         <main>
           <Route path="/" exact component={Quote} />
-          <Route path="/QuotesList" component={QuotesList} />
+          <Route path="/QuotesList" component={QuotesList}  />
         </main>
       </div>
     );

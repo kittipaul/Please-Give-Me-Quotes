@@ -16,7 +16,7 @@ class Quote extends Component {
   }
 
   handleClick() {
-    axios.post("http://localhost:9000/api/quotes",
+    axios.post("/api/quotes",
     { quote: this.state.quote,
       author: this.state.author
     })

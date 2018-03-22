@@ -98,7 +98,7 @@ body {
     margin-left: 75%;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 321px) and (max-width: 480px) {
   .go-to-list-button {
     float: right;
     margin: 2%;
@@ -122,7 +122,9 @@ body {
   .quote-wrapper {
     color: #F6FEFF;
     text-align: center;
-    top: 31%;
+    top: 35%;
+    left: 4%;
+    right: 4%;
     position: absolute;
     padding: 2.5%;
   }
@@ -210,7 +212,7 @@ body {
     color: red;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   .go-to-list-button {
     float: right;
     margin: 2%;
@@ -236,12 +238,14 @@ body {
     color: #F6FEFF;
     text-align: center;
     top: 32%;
+    left: 2%;
+    right: 2%;
     position: absolute;
     padding: 2.5%;
   }
   .quote-text {
     padding: 0 3%;
-    font-size: 1.6em;
+    font-size: 1.5em;
     position: relative;
     font-weight: bolder;
     margin-bottom: 2%;
@@ -253,7 +257,7 @@ body {
   }
   #save-quote-button {
     color: #F6FEFF;
-    font-size: 1em;
+    font-size: 0.9em;
     border: 2px solid #F6FEFF;
     border-radius: 6px;
     background-color: #1496D5;
@@ -326,118 +330,239 @@ body {
     color: red;
   }
 }
-.go-to-list-button {
-  float: right;
-  margin: 2%;
-  padding: 1%;
-  border: 2px solid #F6FEFF;
-  border-radius: 6px;
-  background-color: #1496D5;
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .go-to-list-button {
+    float: right;
+    margin: 2%;
+    padding: 1%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+  }
+  .go-to-list-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+  }
+  .link-to-list {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #F6FEFF;
+    font-weight: bold;
+  }
+  .link-to-list:hover {
+    color: #1496D5;
+  }
+  .quote-wrapper {
+    color: #F6FEFF;
+    text-align: center;
+    top: 32%;
+    left: 7%;
+    right: 7%;
+    position: absolute;
+    padding: 0 2.5%;
+  }
+  .quote-text {
+    font-size: 1.9em;
+    padding: 0 3%;
+    position: relative;
+    font-weight: bolder;
+    margin-bottom: 1.6%;
+  }
+  .author-name {
+    font-size: 1.6em;
+    font-weight: bolder;
+    margin-bottom: 1.5%;
+  }
+  #save-quote-button {
+    color: #F6FEFF;
+    font-size: 1.1em;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+    font-weight: bold;
+    padding: 1%;
+  }
+  #save-quote-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+    color: #1496D5;
+  }
+  .credit-to-api {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    font-size: 0.8em;
+  }
+  .go-to-home-button {
+    margin: 2%;
+    padding: 1%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+  }
+  .go-to-home-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+    color: #1496D5;
+  }
+  .link-to-home {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #F6FEFF;
+    font-weight: bold;
+  }
+  .link-to-home:hover {
+    color: #1496D5;
+  }
+  .my-quotes {
+    color: #F6FEFF;
+    padding-left: 2%;
+    margin-top: 0.1%;
+    font-size: 2em;
+  }
+  .panel-wrapper {
+    color: #F6FEFF;
+    margin: 0.8% 1% 0.8% 2%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+    padding: 1.5% 1.5% 1% 1.5%;
+  }
+  .panel-quote {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 1%;
+  }
+  .panel-author {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .remove-button {
+    color: #F0F0F0;
+    font-size: 1em;
+    border: 2px solid #1496D5;
+    background-color: #1496D5;
+    margin-left: 90%;
+    position: relative;
+  }
+  .remove-button:hover {
+    color: red;
+  }
 }
-.go-to-list-button:hover {
-  transition-duration: 0.4s;
-  background-color: #F6FEFF;
-}
-.link-to-list {
-  font-size: 1.3em;
-  text-decoration: none;
-  color: #F6FEFF;
-  font-weight: bold;
-}
-.link-to-list:hover {
-  color: #1496D5;
-}
-.quote-wrapper {
-  color: #F6FEFF;
-  text-align: center;
-  top: 31%;
-  position: absolute;
-  padding: 0 2.5%;
-}
-.quote-text {
-  font-size: 1.9em;
-  padding: 0 3%;
-  position: relative;
-  font-weight: bolder;
-  margin-bottom: 1.6%;
-}
-.author-name {
-  font-size: 1.6em;
-  font-weight: bolder;
-  margin-bottom: 1.5%;
-}
-#save-quote-button {
-  color: #F6FEFF;
-  font-size: 1.1em;
-  border: 2px solid #F6FEFF;
-  border-radius: 6px;
-  background-color: #1496D5;
-  font-weight: bold;
-  padding: 1%;
-}
-#save-quote-button:hover {
-  transition-duration: 0.4s;
-  background-color: #F6FEFF;
-  color: #1496D5;
-}
-.credit-to-api {
-  position: absolute;
-  bottom: 6px;
-  left: 6px;
-  font-size: 0.8em;
-}
-.go-to-home-button {
-  margin: 2%;
-  padding: 1%;
-  border: 2px solid #F6FEFF;
-  border-radius: 6px;
-  background-color: #1496D5;
-}
-.go-to-home-button:hover {
-  transition-duration: 0.4s;
-  background-color: #F6FEFF;
-  color: #1496D5;
-}
-.link-to-home {
-  font-size: 1.3em;
-  text-decoration: none;
-  color: #F6FEFF;
-  font-weight: bold;
-}
-.link-to-home:hover {
-  color: #1496D5;
-}
-.my-quotes {
-  color: #F6FEFF;
-  padding-left: 2%;
-  margin-top: 0.1%;
-  font-size: 2em;
-}
-.panel-wrapper {
-  color: #F6FEFF;
-  margin: 0.8% 1% 0.8% 2%;
-  border: 2px solid #F6FEFF;
-  border-radius: 6px;
-  background-color: #1496D5;
-  padding: 1.5% 1.5% 1% 1.5%;
-}
-.panel-quote {
-  font-size: 1.4em;
-  font-weight: bold;
-  margin-bottom: 1%;
-}
-.panel-author {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-.remove-button {
-  color: #F0F0F0;
-  font-size: 1em;
-  border: 2px solid #1496D5;
-  background-color: #1496D5;
-  margin-left: 90%;
-  position: relative;
-}
-.remove-button:hover {
-  color: red;
+@media screen and (min-width: 1025px) {
+  .go-to-list-button {
+    float: right;
+    margin: 2%;
+    padding: 1%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+  }
+  .go-to-list-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+  }
+  .link-to-list {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #F6FEFF;
+    font-weight: bold;
+  }
+  .link-to-list:hover {
+    color: #1496D5;
+  }
+  .quote-wrapper {
+    color: #F6FEFF;
+    text-align: center;
+    top: 35%;
+    left: 13%;
+    right: 13%;
+    position: absolute;
+  }
+  .quote-text {
+    font-size: 1.9em;
+    position: relative;
+    font-weight: bolder;
+    margin-bottom: 1.6%;
+  }
+  .author-name {
+    font-size: 1.6em;
+    font-weight: bolder;
+    margin-bottom: 1.5%;
+  }
+  #save-quote-button {
+    color: #F6FEFF;
+    font-size: 1.1em;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+    font-weight: bold;
+    padding: 1%;
+  }
+  #save-quote-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+    color: #1496D5;
+  }
+  .credit-to-api {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    font-size: 0.8em;
+  }
+  .go-to-home-button {
+    margin: 2%;
+    padding: 1%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+  }
+  .go-to-home-button:hover {
+    transition-duration: 0.4s;
+    background-color: #F6FEFF;
+    color: #1496D5;
+  }
+  .link-to-home {
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #F6FEFF;
+    font-weight: bold;
+  }
+  .link-to-home:hover {
+    color: #1496D5;
+  }
+  .my-quotes {
+    color: #F6FEFF;
+    padding-left: 2%;
+    margin-top: 0.1%;
+    font-size: 2em;
+  }
+  .panel-wrapper {
+    color: #F6FEFF;
+    margin: 0.8% 1% 0.8% 2%;
+    border: 2px solid #F6FEFF;
+    border-radius: 6px;
+    background-color: #1496D5;
+    padding: 1.5% 1.5% 1% 1.5%;
+  }
+  .panel-quote {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 1%;
+  }
+  .panel-author {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .remove-button {
+    color: #F0F0F0;
+    font-size: 1em;
+    border: 2px solid #1496D5;
+    background-color: #1496D5;
+    margin-left: 90%;
+    position: relative;
+  }
+  .remove-button:hover {
+    color: red;
+  }
 }

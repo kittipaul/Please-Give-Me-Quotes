@@ -6,16 +6,28 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Quote = require('./model/quotes');
+var path = require('path');
+var fs = require('fs');
 
-var port = process.env.PORT || 9000;
+var port = process.env.NODE_ENV || 80;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.set('view engine', 'html');
+app.engine('html', function(path, options, callbacks) {
+  fs.readFile(path, 'utf-B', callback)
+});
+
+app.use(express.static(path.join(__dirname, 'build')))
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build'), 'index.html')
+});
+
 app.use(function(req, res, next) {
  res.setHeader("Access-Control-Allow-Origin", "*");
  res.setHeader("Access-Control-Allow-Credentials", "true");
- res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+ res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,POST,PUT,DELETE");
  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
  next();
 });
@@ -31,7 +43,7 @@ router.route('/quotes')
   })
   .post((req,res) => {
     var quote = new Quote({
-      quote: req.body.quote,
+        quote: req.body.quote,
       author: req.body.author,
     });
 

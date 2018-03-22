@@ -7,15 +7,11 @@ class QuotePanel extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      quotes: []
-    }
-
     this.removeQuote = this.removeQuote.bind(this);
   }
 
   removeQuote() {
-    axios.delete("http://localhost:9000/api/quotes", {
+    axios.delete("/api/quotes", {
       data: {quote: this.props.quote}
     })
     .then(this.props.showList())

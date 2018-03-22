@@ -18,7 +18,9 @@ class QuotesList extends Component {
     axios.get("/api/quotes")
     .then(res => {
       this.setState({
-        quotes: res.data
+        quotes: res.data.map((q,id) => {
+          return <QuotePanel showList={this.showList} key={id} quote={q.quote} author={q.author} />
+        })
       })
     })
     .catch(err => console.log("this show list went wrong"));

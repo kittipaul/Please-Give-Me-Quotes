@@ -9,7 +9,7 @@ var Quote = require('./model/quotes');
 var path = require('path');
 var fs = require('fs');
 
-var port = process.env.NODE_ENV || 80;
+var port = process.env.NODE_ENV || 9000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ app.engine('html', function(path, options, callbacks) {
 });
 
 app.use(express.static(path.join(__dirname, 'build')))
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build'), 'index.html')
 });
 
